@@ -2,7 +2,7 @@ package ai_project1;
 
 import java.util.*;
 
-class LinkedListPractice {
+public class LinkedListPractice {
 
 	City a = new City("Ramallah");
 	LinkedList<LinkedList<City>> allCities = new LinkedList<LinkedList<City>>();
@@ -30,16 +30,28 @@ class LinkedListPractice {
 	City jericho = new City("Jericho");
 	City nablus = new City("Nablus");
 	City tubas = new City("Tubas");
+	
+	City[] cities = {jenin, toulkarem, qalqillia, salfeit, ramallah, jerusalem, bethlehem, 
+			hebron, jericho, nablus, tubas};
 //	City jenin = new City("Jenin");
 	
-	public LinkedListPractice(){
+	public LinkedListPractice(String start, String end){
 		
 		populateLists();
 		assignListsToCities();
 //		System.out.println(ramallah.getAdjacentCities());
-		ItDeepCity idc = new ItDeepCity(salfeit);
-		idc.runDeepeningSearch(jerusalem);
+		ItDeepCity idc = new ItDeepCity(cityStringToObject(end));
+		idc.runDeepeningSearch(cityStringToObject(start));
 	
+	}
+	
+	public City cityStringToObject(String c) {
+		for(City city: cities) {
+			if(c.equalsIgnoreCase(city.getCity())) {
+				return city;
+			}
+		}
+		return null;
 	}
 	
 	public void assignListsToCities() {

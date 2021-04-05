@@ -16,7 +16,7 @@ public class main
 //		IterativeDeepening itDeep = new IterativeDeepening(node3);
 //		itDeep.runDeepeningSearch(node1);
 		
-		LinkedListPractice l = new LinkedListPractice();
+		LinkedListPractice l = new LinkedListPractice("jenin", "ramallah");
 		
 		
 		

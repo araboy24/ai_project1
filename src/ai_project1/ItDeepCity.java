@@ -7,13 +7,14 @@ public class ItDeepCity
 	
 	private City targetCity;
 	private boolean isTargetFound = false;
+	int depth = 0;
 	public ItDeepCity(City targetCity) {
 		this.targetCity = targetCity;
 	}
 	
 	
 	public void runDeepeningSearch(City startCity) {
-		int depth = 0;
+		depth = 0;
 		while(!isTargetFound) {
 			System.out.println();
 			depthSearch(startCity, depth);
@@ -32,6 +33,7 @@ public class ItDeepCity
 			
 			if(actualCity.getCity().equals(this.targetCity.getCity())) {
 				System.out.println("\nNode has been found");
+				System.out.println("Depth reached: "+ depth);
 				this.isTargetFound = true;
 				return;
 			}

@@ -11,11 +11,18 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import ai_project1.ItDeepCity;
+import ai_project1.LinkedListPractice;
+
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;;
 
 public class Home extends JPanel
 {
+	private String startCity = "Jenin";
+	private String endCity = "Jenin";
+	
 	
 	private JPanel topPan = new JPanel();
 	private JPanel midPan = new JPanel();
@@ -141,7 +148,8 @@ public class Home extends JPanel
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-//				main.cl.show(main.cards, "add meal");				
+//				main.cl.show(main.cards, "add meal");
+				LinkedListPractice l = new LinkedListPractice(startComboBox.getSelectedItem().toString(), endComboBox.getSelectedItem().toString());
 			}
         });
         
