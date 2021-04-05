@@ -5,12 +5,12 @@ public class main
 
 	public static void main(String[] args)
 	{
-		Node node1 = new Node("A");
-		Node node2 = new Node("B");
-		Node node3 = new Node("C");
-		
-		node1.addNeighbor(node2);
-		node2.addNeighbor(node3);
+//		Node node1 = new Node("A");
+//		Node node2 = new Node("B");
+//		Node node3 = new Node("C");
+//		
+//		node1.addNeighbor(node2);
+//		node2.addNeighbor(node3);
 //		node1.addNeighbor(node3);
 		
 //		IterativeDeepening itDeep = new IterativeDeepening(node3);

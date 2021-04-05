@@ -36,7 +36,7 @@ class LinkedListPractice {
 		
 		populateLists();
 		assignListsToCities();
-		System.out.println(ramallah.getAdjacentCities());
+//		System.out.println(ramallah.getAdjacentCities());
 		ItDeepCity idc = new ItDeepCity(salfeit);
 		idc.runDeepeningSearch(jerusalem);
 	
