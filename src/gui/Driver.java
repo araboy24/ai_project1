@@ -12,12 +12,14 @@ public class Driver
 	public static JPanel cards = new JPanel();
     public static CardLayout cl = new CardLayout();
     final public static JPanel HOME = new Home();
+    final public static JPanel MAP = new Map();
     public static void main(String[] args)
     {    	
         JFrame a = new JFrame();
         cards.setLayout(cl);
         a.add(cards);
         cards.add(HOME, "home");
+        cards.add(MAP, "map");
 //        Panel p = new Panel();
 //        p.add(Home, "HOme");
 //        a.add(p);

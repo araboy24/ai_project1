@@ -1,5 +1,7 @@
 package ai_project1;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 public class ItDeepCity
@@ -8,6 +10,7 @@ public class ItDeepCity
 	private City targetCity;
 	private boolean isTargetFound = false;
 	int depth = 0;
+	private List<City> alreadyCheckedCities = new ArrayList<City>();
 	public ItDeepCity(City targetCity) {
 		this.targetCity = targetCity;
 	}
@@ -27,9 +30,13 @@ public class ItDeepCity
 		startCity.setDepthLevel(0);
 		stack.push(startCity);
 		
+		alreadyCheckedCities.clear();
+		
 		while(!stack.isEmpty()) {
 			City actualCity = stack.pop();
+			alreadyCheckedCities.add(actualCity);
 			System.out.print(actualCity + " ");
+			
 			
 			if(actualCity.getCity().equals(this.targetCity.getCity())) {
 				System.out.println("\nNode has been found");
@@ -44,8 +51,10 @@ public class ItDeepCity
 			
 //			System.out.println("For loop incoming");
 			for(City city : actualCity.getAdjacentCities()) {
-				city.setDepthLevel(actualCity.getDepthLevel()+1);
-				stack.push(city);
+//				if(!alreadyCheckedCities.contains(city)) {
+					city.setDepthLevel(actualCity.getDepthLevel()+1);
+					stack.push(city);
+//				}
 			}
 //			System.out.println("For loop Done");
 		}

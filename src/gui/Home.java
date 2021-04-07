@@ -1,5 +1,6 @@
 package gui;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -29,6 +30,7 @@ public class Home extends JPanel
 	private JPanel botPan = new JPanel();
 	private JPanel mlPan = new JPanel();
 	private JPanel mrPan = new JPanel();
+	private JPanel resultsPan = new JPanel();
 	
 	
 	private JLabel labTitle = new JLabel("Welcome to PalCal");
@@ -69,7 +71,17 @@ public class Home extends JPanel
 	private JMenuItem nablusMenSel = new JMenuItem("Nablus");
 	private JMenuItem salfMenSel = new JMenuItem("Salfeit");
 	
-	
+	public void setTopPanel() {
+		topPan.setLayout(new GridBagLayout());
+		GridBagConstraints c = new GridBagConstraints();
+//		c.weightx = .8;
+		c.gridy = 0;
+		topPan.add(labTitle, c);
+		
+//		c.weightx = .2;
+		c.gridy = 1;
+		topPan.add(btnViewMap, c);
+	}
 	public void setMiddlePanel() {
 		midPan.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
@@ -111,11 +123,14 @@ public class Home extends JPanel
 	}
     
     public Home() {
+//    	setBackground(Color.white);
     	formatLabels();
-        GridLayout layout = new GridLayout(3, 1, 0, 10);
-        setLayout(layout);
-        topPan.add(labTitle);
+//        GridLayout layout = new GridLayout(3, 1, 0, 10);
+        setLayout(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
+//        topPan.add(labTitle);
         setMiddlePanel();
+        setTopPanel();
 //        attachMenuItems();
 //        mlPan.setLayout(new GridLayout(2, 1));
 //        mrPan.setLayout(new GridLayout(2, 1));
@@ -128,12 +143,29 @@ public class Home extends JPanel
 //        midPan.add(new JPanel());
 //        midPan.add(mrPan);
 //        midPan.add(endComboBox);
+        botPan.setLayout(new GridLayout(3,1));
         botPan.add(btnIterativeDeepening);
         botPan.add(btnUniformCost);
         botPan.add(btnAlgorithm2);
-        add(topPan);
-        add(midPan);
-        add(botPan);
+        c.gridy = 0;
+        c.weightx = 1;
+        c.weighty = .1;
+        c.anchor = GridBagConstraints.NORTH;
+//        add(labTitle, c);
+        add(topPan, c);
+
+        c.weightx = 1;
+        c.weighty = .45;
+        c.gridy = 1;
+        add(midPan, c);
+        
+        c.weightx = 1;
+        c.weighty = .45;
+        c.gridy = 2;
+        add(botPan, c);
+        
+        c.gridy = 3;
+        add(resultsPan, c);
         
 //        botPan.add(btnViewMap);
 //        add(ins);
@@ -152,6 +184,25 @@ public class Home extends JPanel
 				LinkedListPractice l = new LinkedListPractice(startComboBox.getSelectedItem().toString(), endComboBox.getSelectedItem().toString());
 			}
         });
+        
+        btnUniformCost.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+//				Driver.cl.show(Driver.cards, "map");
+//				LinkedListPractice l = new LinkedListPractice(startComboBox.getSelectedItem().toString(), endComboBox.getSelectedItem().toString());
+			}
+        });
+        
+        btnViewMap.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				Driver.cl.show(Driver.cards, "map");
+//				LinkedListPractice l = new LinkedListPractice(startComboBox.getSelectedItem().toString(), endComboBox.getSelectedItem().toString());
+			}
+        });
+        
         
 //        btnAddMeal.addActionListener(new ActionListener() {
 //			@Override
