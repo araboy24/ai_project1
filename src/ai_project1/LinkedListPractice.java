@@ -18,21 +18,49 @@ public class LinkedListPractice {
 	LinkedList<City> nablusList = new LinkedList<City>();
 	LinkedList<City> tubasList = new LinkedList<City>();
 	
+	//New Cities from Noor
+	LinkedList<City> haifaList = new LinkedList<City>();
+	LinkedList<City> jaffaList = new LinkedList<City>();
+	LinkedList<City> gazaList = new LinkedList<City>();
+	LinkedList<City> rafahList = new LinkedList<City>();
 	
-	City jenin = new City("Jenin");
-	City toulkarem = new City("Toulkarem");
-	City qalqillia = new City("Qalqillia");
-	City salfeit = new City("Salfeit");
-	City ramallah = new City("Ramallah");
-	City jerusalem = new City("Jerusalem");
-	City bethlehem = new City("Bethlehem");
-	City hebron = new City("Hebron");
-	City jericho = new City("Jericho");
-	City nablus = new City("Nablus");
-	City tubas = new City("Tubas");
+	//More new cities
+	LinkedList<City> safadList = new LinkedList<City>();
+	LinkedList<City> deirAlbalahList = new LinkedList<City>();
+	LinkedList<City> northGazaList = new LinkedList<City>();
+	LinkedList<City> nazarethList = new LinkedList<City>();
+	LinkedList<City> ramlaList = new LinkedList<City>();
+	LinkedList<City> khanYunisList = new LinkedList<City>();
 	
-	City[] cities = {jenin, toulkarem, qalqillia, salfeit, ramallah, jerusalem, bethlehem, 
-			hebron, jericho, nablus, tubas};
+	
+	static City jenin = new City("Jenin");
+	static City toulkarem = new City("Toulkarem");
+	static City qalqillia = new City("Qalqillia");
+	static City salfeit = new City("Salfeit");
+	static City ramallah = new City("Ramallah");
+	static City jerusalem = new City("Jerusalem");
+	static City bethlehem = new City("Bethlehem");
+	static City hebron = new City("Hebron");
+	static City jericho = new City("Jericho");
+	static City nablus = new City("Nablus");
+	static City tubas = new City("Tubas");
+	
+	//New Cities N
+	static City haifa = new City("Haifa");
+	static City jaffa = new City("Jaffa");
+	static City gaza = new City("Gaza");
+	static City rafah = new City("Rafah");
+	
+	//New Cities M
+	static City safad = new City("Safad");
+	static City deirAlbalah = new City("Deir Al Balah");
+	static City northGaza = new City("North Gaza");
+	static City nazareth = new City("Nazareth");
+	static City ramla = new City("Ramla");
+	static City khanYunis = new City("Khan Yunis");
+	
+	static City[] cities = {jenin, toulkarem, qalqillia, salfeit, ramallah, jerusalem, bethlehem, 
+			hebron, jericho, nablus, tubas, haifa, jaffa, gaza, rafah, safad, deirAlbalah, northGaza, nazareth, ramla, khanYunis};
 //	City jenin = new City("Jenin");
 	
 	public LinkedListPractice(String start, String end){
@@ -54,6 +82,10 @@ public class LinkedListPractice {
 		return null;
 	}
 	
+	public static City[] getCities() {
+		return cities;
+	}
+	
 	public void assignListsToCities() {
 		jenin.setAdjacentCities(jeninList);
 		toulkarem.setAdjacentCities(toulkaremList);
@@ -66,6 +98,18 @@ public class LinkedListPractice {
 		jericho.setAdjacentCities(jerichoList);
 		nablus.setAdjacentCities(nablusList);
 		tubas.setAdjacentCities(tubasList);
+		
+		//Added
+		haifa.setAdjacentCities(haifaList);
+		jaffa.setAdjacentCities(jaffaList);
+		gaza.setAdjacentCities(gazaList);
+		rafah.setAdjacentCities(rafahList);
+		safad.setAdjacentCities(safadList);
+		deirAlbalah.setAdjacentCities(deirAlbalahList);
+		northGaza.setAdjacentCities(northGazaList);
+		nazareth.setAdjacentCities(nazarethList);
+		ramla.setAdjacentCities(ramlaList);
+		khanYunis.setAdjacentCities(khanYunisList);
 	}
 	
 	public void populateLists() {
@@ -90,30 +134,61 @@ public class LinkedListPractice {
 		allCities.add(jerichoList);
 		allCities.add(nablusList);
 		allCities.add(hebronList);
+		
+		//	 haifa, jaffa, gaza, rafah, safad, sabastia, northGaza, nazareth, dura
+		
+		
+		//Additions
+		assignHaifa();
+		assignJaffa();
+		assignGaza();
+		assignRafah();
+		assignSafad();
+		assignDeirAlbalah();
+		assignNorthGaza();
+		assignNazareth();
+		assignRamla();
+		
 	}
 	
 	public void assignJenin() {
 		jeninList.add(toulkarem);
 		jeninList.add(tubas);
 		jeninList.add(nablus);
+		
+		//New
+		jeninList.add(nazareth);
+		jeninList.add(haifa);
 	}
 
 	public void assignToulkarem() {
 		toulkaremList.add(jenin);
 		toulkaremList.add(qalqillia);
 		toulkaremList.add(nablus);
+		
+		//NEW
+		jeninList.add(haifa);
+		qalqilliaList.add(ramla);
 	}
 	
 	public void assignQalqillia() {
 		qalqilliaList.add(toulkarem);
 		qalqilliaList.add(salfeit);
 		qalqilliaList.add(nablus);
+		
+		//New
+//		qalqilliaList.add(jaffa);
+		qalqilliaList.add(ramla);
 	}
 	
 	public void assignSalfeit() {
 		salfeitList.add(qalqillia);
 		salfeitList.add(nablus);
 		salfeitList.add(ramallah);
+		
+		//NEW
+//		salfeitList.add(jaffa);
+		salfeitList.add(ramla);
 	}
 	
 	public void assignRamallah() {
@@ -121,12 +196,19 @@ public class LinkedListPractice {
 		ramallahList.add(nablus);
 		ramallahList.add(jericho);
 		ramallahList.add(jerusalem);
+		
+		//New
+		ramallahList.add(ramla);
 	}
 	
 	public void assignJerusalem() {
 		jerusalemList.add(ramallah);
 		jerusalemList.add(jericho);
 		jerusalemList.add(bethlehem);
+		
+		//new
+		jerusalemList.add(ramla);
+		jerusalemList.add(jerusalem);
 	}
 	
 	public void assignBethlehem() {
@@ -159,6 +241,75 @@ public class LinkedListPractice {
 		tubasList.add(jenin);
 		tubasList.add(jericho);
 		tubasList.add(nablus);	
+	} 
+	
+	
+	
+	//new functions
+	
+	public void assignHaifa() {
+		haifaList.add(nazareth);
+		haifaList.add(toulkarem);
+		haifaList.add(jenin);
+	}
+
+    public void assignJaffa() {
+    	jaffaList.add(nazareth);
+    	jaffaList.add(qalqillia);
+    	jaffaList.add(salfeit);
+    	jaffaList.add(ramla);
+    }
+    
+    public void assignGaza() {
+    	gazaList.add(northGaza);
+    	gazaList.add(deirAlbalah);
+    }
+    
+    public void assignRafah() {
+    	rafahList.add(khanYunis);
+    }
+    
+    public void assignKhanYunis() {
+    	khanYunisList.add(rafah);
+    	khanYunisList.add(deirAlbalah);
+    }
+    
+    public void assignSafad() {
+    	safadList.add(nazareth);
+    }
+    
+    public void assignDeirAlbalah() {
+        	deirAlbalahList.add(gaza);
+        	deirAlbalahList.add(khanYunis);
+    }
+    
+    public void assignNorthGaza() {
+    	northGazaList.add(gaza);
+    	northGazaList.add(jerusalem);
+    }
+    
+	
+	public void assignNazareth() {
+		nazarethList.add(jaffa);
+		nazarethList.add(jenin);
+		nazarethList.add(haifa);
+		nazarethList.add(safad);
+	}
+	
+	public void assignRamla() {
+		ramlaList.add(jerusalem);
+		ramlaList.add(jaffa);
+		ramlaList.add(ramallah);
+		ramlaList.add(toulkarem);
+		ramlaList.add(qalqillia);
+		ramlaList.add(salfeit);
+	}
+
+	
+	public static void resetVisited() {
+		for (City c : cities) {
+			c.setIsVisited(false);
+		}
 	}
 	
 

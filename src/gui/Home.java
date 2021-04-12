@@ -54,7 +54,8 @@ public class Home extends JPanel
 	
 	
 	private String[] cities = {"Jenin", "Ramallah", "Toulkarem", "Jerusalem", "Jericho", 
-	                           "Qalqillia", "Bethlehem", "Tubas", "Hebron", "Nablus", "Salfeit"};
+	                           "Qalqillia", "Bethlehem", "Tubas", "Hebron", "Nablus", "Salfeit", "North Gaza",
+	                           "Gaza", "Deir Al Balah", "Khan Yunis", "Rafah", "Safad", "Haifa" , "Jaffa", "Ramla", "Nazareth"};
 	
 	private JComboBox startComboBox = new JComboBox(cities);
 	private JComboBox endComboBox = new JComboBox(cities);
@@ -124,6 +125,9 @@ public class Home extends JPanel
     
     public Home() {
 //    	setBackground(Color.white);
+//    	for(int i = 0; i < cities.length; i++) {
+//    		cities[i] = LinkedListPractice.getCities()[i].getCity();
+//    	}
     	formatLabels();
 //        GridLayout layout = new GridLayout(3, 1, 0, 10);
         setLayout(new GridBagLayout());

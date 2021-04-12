@@ -10,7 +10,7 @@ public class ItDeepCity
 	private City targetCity;
 	private boolean isTargetFound = false;
 	int depth = 0;
-	private List<City> alreadyCheckedCities = new ArrayList<City>();
+//	private List<City> citiesToReset = new ArrayList<City>();
 	public ItDeepCity(City targetCity) {
 		this.targetCity = targetCity;
 	}
@@ -20,21 +20,31 @@ public class ItDeepCity
 		depth = 0;
 		while(!isTargetFound) {
 			System.out.println();
+			LinkedListPractice.resetVisited();
 			depthSearch(startCity, depth);
 			depth++;
+//			resetVisited();
 		}
+	}
+	
+	private void resetVisited() {
+//		for(City c : citiesToReset) {
+//			c.setIsVisited(false);
+//		}
+		
 	}
 	
 	private void depthSearch(City startCity, int depth) {
 		Stack<City> stack = new Stack<>();
 		startCity.setDepthLevel(0);
+		startCity.setIsVisited(true);
 		stack.push(startCity);
-		
-		alreadyCheckedCities.clear();
+//		citiesToReset.add(startCity);
+//		alreadyCheckedCities.clear();
 		
 		while(!stack.isEmpty()) {
 			City actualCity = stack.pop();
-			alreadyCheckedCities.add(actualCity);
+//			alreadyCheckedCities.add(actualCity);
 			System.out.print(actualCity + " ");
 			
 			
@@ -52,8 +62,12 @@ public class ItDeepCity
 //			System.out.println("For loop incoming");
 			for(City city : actualCity.getAdjacentCities()) {
 //				if(!alreadyCheckedCities.contains(city)) {
+				if(!city.getIsVisited()) {
 					city.setDepthLevel(actualCity.getDepthLevel()+1);
+					city.setIsVisited(true);
+//					citiesToReset.add(startCity);
 					stack.push(city);
+				}
 //				}
 			}
 //			System.out.println("For loop Done");

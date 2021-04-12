@@ -10,12 +10,20 @@ public class City
 	private int depthLevel = 0;
 //	private List<Node> adjacentNodes;
 	private List<City> adjacentCities;
-	
+	private boolean isVisited = false;
 	
 	
 	public City(String cityName) {
 		this.cityName = cityName;
 		this.adjacentCities = new ArrayList<>();
+	}
+	
+	public boolean getIsVisited() {
+		return this.isVisited;
+	}
+	
+	public void setIsVisited(boolean isVisited) {
+		this.isVisited = isVisited;
 	}
 	
 	public String toString() {
