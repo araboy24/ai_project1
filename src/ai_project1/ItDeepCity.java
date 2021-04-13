@@ -19,7 +19,7 @@ public class ItDeepCity
 		depth = 0;
 		while(!isTargetFound) {
 			System.out.println();
-			LinkedListPractice.resetVisited();
+			IterDeepPrep.resetVisited();
 			depthSearch(startCity, depth);
 			depth++;
 		}

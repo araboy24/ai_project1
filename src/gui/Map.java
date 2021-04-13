@@ -18,7 +18,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-import ai_project1.LinkedListPractice;
+import ai_project1.IterDeepPrep;
 
 public class Map extends JPanel
 {
@@ -32,22 +32,17 @@ public class Map extends JPanel
 		c.anchor = GridBagConstraints.SOUTH;
 		c.gridy = 1;
 		add(backBtn, c);
-//		addKeyListener(this);
-//        addMouseListener(this);
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
-//        timer = new Timer(delay, this);
-//        timer.start();
-        
         BufferedImage myPicture = null;
 		try
 		{
 			myPicture = ImageIO.read(new File("palMap.png"));
 		} catch (IOException e1)
 		{
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		
 		if(myPicture != null) {
 			
         JLabel picLabel = new JLabel(new ImageIcon(myPicture));
@@ -63,23 +58,5 @@ public class Map extends JPanel
     		}
         });
 	}
-	
-	
-	
-	
-//	public void paint(Graphics g)
-//    {
-////        g.setColor(Color.white);
-////        g.fillRect(0, 0,super.getWidth(), super.getHeight());
-//        
-//        ImageIcon bg = new ImageIcon("palMap.png");
-////        bg.paintIcon(this, g, 0, 0);
-//        
-//        Font font = new Font("Arial", 30, 30);
-//        g.setFont(font);
-//        
-//        // Leave at end
-////        g.dispose();
-//    }
-	
+
 }

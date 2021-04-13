@@ -20,9 +20,6 @@ public class Driver
         a.add(cards);
         cards.add(HOME, "home");
         cards.add(MAP, "map");
-//        Panel p = new Panel();
-//        p.add(Home, "HOme");
-//        a.add(p);
         a.setResizable(false);
         a.setBackground(Color.lightGray);
         a.setTitle("AI Project");

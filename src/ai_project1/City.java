@@ -3,22 +3,14 @@ package ai_project1;
 import java.util.*;
 import java.util.List;
 
-public class City //implements Comparable<City>
+public class City 
 {
 
 	private String cityName;
 	private int depthLevel = 0;
 	private List<City> adjacentCities;
 	private boolean isVisited = false;
-//	public Edge[] adjacencies;
-//	public double minDistance = Double.POSITIVE_INFINITY;
-//	public City previous;
-//    public City(String argName) { cityName = argName; }
-//	public int compareTo(City other)
-//    {
-//        return Double.compare(minDistance, other.minDistance);
-//    }
-//	
+	
 	public City(String cityName) {
 		this.cityName = cityName;
 		this.adjacentCities = new ArrayList<>();

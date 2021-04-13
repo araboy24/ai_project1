@@ -2,7 +2,7 @@ package ai_project1;
 
 import java.util.*;
 
-public class LinkedListPractice {
+public class IterDeepPrep {
 
 	City a = new City("Ramallah");
 	LinkedList<LinkedList<City>> allCities = new LinkedList<LinkedList<City>>();
@@ -64,14 +64,11 @@ public class LinkedListPractice {
 	
 	String start, end;
 	
-	public LinkedListPractice(String start, String end){
+	public IterDeepPrep(String start, String end){
 		this.start = start;
 		this.end = end;
 		populateLists();
 		assignListsToCities();
-//		System.out.println(ramallah.getAdjacentCities());
-		
-	
 	}
 	
 	public void runIterativeDeepening() {
@@ -140,9 +137,6 @@ public class LinkedListPractice {
 		allCities.add(jerichoList);
 		allCities.add(nablusList);
 		allCities.add(hebronList);
-		
-		//	 haifa, jaffa, gaza, rafah, safad, sabastia, northGaza, nazareth, dura
-		
 		
 		//Additions
 		assignHaifa();
@@ -214,7 +208,6 @@ public class LinkedListPractice {
 		
 		//new
 		jerusalemList.add(ramla);
-		jerusalemList.add(jerusalem);
 	}
 	
 	public void assignBethlehem() {
@@ -291,7 +284,7 @@ public class LinkedListPractice {
     
     public void assignNorthGaza() {
     	northGazaList.add(gaza);
-    	northGazaList.add(jerusalem);
+    	northGazaList.add(ramla);
     }
     
 	
@@ -309,6 +302,7 @@ public class LinkedListPractice {
 		ramlaList.add(toulkarem);
 		ramlaList.add(qalqillia);
 		ramlaList.add(salfeit);
+		ramlaList.add(northGaza);
 	}
 
 	

@@ -14,7 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import ai_project1.ItDeepCity;
-import ai_project1.LinkedListPractice;
+import ai_project1.IterDeepPrep;
 import ai_project1.UnifCost;
 
 import javax.swing.JMenu;
@@ -39,7 +39,8 @@ public class Home extends JPanel
 	private JLabel labEndLoc = new JLabel("Select an End Location");
 
 	private JButton btnIterativeDeepening = new JButton("Run Iterative Deepening");
-	private JButton btnUniformCost = new JButton("Run Uniform Cost");
+	private JButton btnUniformCost = new JButton("Run Uniform Cost Driving");
+	private JButton btnUniformCostAreal = new JButton("Run Uniform Cost Areal");
 	private JButton btnOptimal1 = new JButton("Run Optimal 1");
 	private JButton btnViewMap = new JButton("View Map");
 	
@@ -66,11 +67,9 @@ public class Home extends JPanel
 	public void setTopPanel() {
 		topPan.setLayout(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
-//		c.weightx = .8;
 		c.gridy = 0;
 		topPan.add(labTitle, c);
 		
-//		c.weightx = .2;
 		c.gridy = 1;
 		topPan.add(btnViewMap, c);
 	}
@@ -94,8 +93,6 @@ public class Home extends JPanel
         c.anchor = GridBagConstraints.CENTER;
         midPan.add(startComboBox, c);
         
-//        midPan.setLayout(new GridBagLayout());
-//        GridBagConstraints d = new GridBagConstraints();
         c.fill = GridBagConstraints.HORIZONTAL;
         c.weightx = 0.35;
         c.gridx = 1;
@@ -115,38 +112,20 @@ public class Home extends JPanel
 	}
     
     public Home() {
-//    	setBackground(Color.white);
-//    	for(int i = 0; i < cities.length; i++) {
-//    		cities[i] = LinkedListPractice.getCities()[i].getCity();
-//    	}
     	formatLabels();
-//        GridLayout layout = new GridLayout(3, 1, 0, 10);
         setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
-//        topPan.add(labTitle);
         setMiddlePanel();
         setTopPanel();
-//        attachMenuItems();
-//        mlPan.setLayout(new GridLayout(2, 1));
-//        mrPan.setLayout(new GridLayout(2, 1));
-//        mrPan.add(labEndLoc);
-//        mrPan.add(endComboBox);
-//        mlPan.add(labStartLoc);
-//        mlPan.add(startComboBox);
-//        midPan.setLayout(new GridLayout(1, 3, 0,0));
-//        midPan.add(mlPan);
-//        midPan.add(new JPanel());
-//        midPan.add(mrPan);
-//        midPan.add(endComboBox);
-        botPan.setLayout(new GridLayout(3,1));
+        botPan.setLayout(new GridLayout(4,1));
         botPan.add(btnIterativeDeepening);
         botPan.add(btnUniformCost);
+        botPan.add(btnUniformCostAreal);
         botPan.add(btnOptimal1);
         c.gridy = 0;
         c.weightx = 1;
         c.weighty = .1;
         c.anchor = GridBagConstraints.NORTH;
-//        add(labTitle, c);
         add(topPan, c);
 
         c.weightx = 1;
@@ -162,21 +141,11 @@ public class Home extends JPanel
         c.gridy = 3;
         add(resultsPan, c);
         
-//        botPan.add(btnViewMap);
-//        add(ins);
-        //add(btnHome);
-     //   add(btnAddMeal);
-//        add(btnAddUser);
-       // add(btnViewMeals);
-//        add(btnLogin);
-        
-        
         btnIterativeDeepening.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-//				main.cl.show(main.cards, "add meal");
-				LinkedListPractice l = new LinkedListPractice(startComboBox.getSelectedItem().toString(), endComboBox.getSelectedItem().toString());
+				IterDeepPrep l = new IterDeepPrep(startComboBox.getSelectedItem().toString(), endComboBox.getSelectedItem().toString());
 				l.runIterativeDeepening();
 			}
         });
@@ -185,7 +154,15 @@ public class Home extends JPanel
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				UnifCost uc = new UnifCost(startComboBox.getSelectedItem().toString(), endComboBox.getSelectedItem().toString());
+				UnifCost uc = new UnifCost(startComboBox.getSelectedItem().toString(), endComboBox.getSelectedItem().toString(), true);
+			}
+        });
+        
+        btnUniformCostAreal.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				UnifCost uc = new UnifCost(startComboBox.getSelectedItem().toString(), endComboBox.getSelectedItem().toString(), false);
 			}
         });
         
