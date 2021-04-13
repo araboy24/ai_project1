@@ -35,25 +35,15 @@ public class Home extends JPanel
 	
 	
 	private JLabel labTitle = new JLabel("Welcome to PalCal");
-//	private JLabel ins = new JLabel("<html>Create an Account to Get Started<br>Or Login if you're already registered</html>");
 	private JLabel labStartLoc = new JLabel("Select a Start Location");
 	private JLabel labEndLoc = new JLabel("Select an End Location");
-    
-//    private JButton btnHome = new JButton("Home");
-//    private JButton btnAddMeal = new JButton("Add Meal");
-//    private JButton btnAddUser = new JButton("Create Account");
-//    private JButton btnViewMeals = new JButton("View Meals");
-//    private JButton btnLogin = new JButton("Login");
-	
+
 	private JButton btnIterativeDeepening = new JButton("Run Iterative Deepening");
 	private JButton btnUniformCost = new JButton("Run Uniform Cost");
-	private JButton btnAlgorithm2 = new JButton("Run Algorithm 2");
+	private JButton btnOptimal1 = new JButton("Run Optimal 1");
 	private JButton btnViewMap = new JButton("View Map");
 	
-//	private JMenu startMenu = new JMenu("Start Location");
-//	private JMenu endMenu = new JMenu("End Location");
-	
-	
+
 	private String[] cities = {"Jenin", "Ramallah", "Toulkarem", "Jerusalem", "Jericho", 
 	                           "Qalqillia", "Bethlehem", "Tubas", "Hebron", "Nablus", "Salfeit", "North Gaza",
 	                           "Gaza", "Deir Al Balah", "Khan Yunis", "Rafah", "Safad", "Haifa" , "Jaffa", "Ramla", "Nazareth"};
@@ -151,7 +141,7 @@ public class Home extends JPanel
         botPan.setLayout(new GridLayout(3,1));
         botPan.add(btnIterativeDeepening);
         botPan.add(btnUniformCost);
-        botPan.add(btnAlgorithm2);
+        botPan.add(btnOptimal1);
         c.gridy = 0;
         c.weightx = 1;
         c.weighty = .1;
@@ -187,6 +177,7 @@ public class Home extends JPanel
 			{
 //				main.cl.show(main.cards, "add meal");
 				LinkedListPractice l = new LinkedListPractice(startComboBox.getSelectedItem().toString(), endComboBox.getSelectedItem().toString());
+				l.runIterativeDeepening();
 			}
         });
         
@@ -194,8 +185,6 @@ public class Home extends JPanel
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-//				Driver.cl.show(Driver.cards, "map");
-//				LinkedListPractice l = new LinkedListPractice(startComboBox.getSelectedItem().toString(), endComboBox.getSelectedItem().toString());
 				UnifCost uc = new UnifCost(startComboBox.getSelectedItem().toString(), endComboBox.getSelectedItem().toString());
 			}
         });
@@ -205,83 +194,18 @@ public class Home extends JPanel
 			public void actionPerformed(ActionEvent e)
 			{
 				Driver.cl.show(Driver.cards, "map");
-//				LinkedListPractice l = new LinkedListPractice(startComboBox.getSelectedItem().toString(), endComboBox.getSelectedItem().toString());
 			}
         });
         
         
-//        btnAddMeal.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent e)
-//			{
-////				main.cl.show(main.cards, "add meal");				
-//			}
-//        });
-//        
-//        btnAddUser.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent e)
-//			{
-////				main.cl.show(main.cards, "add user");				
-//			}
-//        });
-//        
-//        btnViewMeals.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent e)
-//			{
-////				ViewMeals.updateTotals();
-////				main.cl.show(main.cards, "view meals");	
-//				
-//			}
-//        });
-//        
-//        btnLogin.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent e)
-//			{
-////				main.cl.show(main.cards, "login");				
-//			}
-//        });
+
     }
     
     public void formatLabels() {
     	labTitle.setFont(new Font("Sanserif", Font.BOLD, 25));
     	labTitle.setHorizontalAlignment(JLabel.CENTER);
-//    	ins.setFont(new Font("Sanserif", Font.PLAIN, 15));
-//    	ins.setHorizontalAlignment(JLabel.CENTER);
+
     }
     
-//    public void attachMenuItems() {
-//    	startMenu.add(jeninMenSel);
-//    	endMenu.add(jeninMenSel);
-//    	
-//    	startMenu.add(ramallahMenSel);
-//    	endMenu.add(ramallahMenSel);
-//
-//    	startMenu.add(qalqMenSel);
-//    	endMenu.add(qalqMenSel);
-//
-//    	startMenu.add(salfMenSel);
-//    	endMenu.add(salfMenSel);
-//
-//    	startMenu.add(jerusalemMenSel);
-//    	endMenu.add(jerusalemMenSel);
-//
-//    	startMenu.add(bethMenSel);
-//    	endMenu.add(bethMenSel);
-//
-//    	startMenu.add(hebronMenSel);
-//    	endMenu.add(hebronMenSel);
-//
-//    	startMenu.add(jerichoMenSel);
-//    	endMenu.add(jerichoMenSel);
-//
-//    	startMenu.add(nablusMenSel);
-//    	endMenu.add(nablusMenSel);
-//    	
-//    	startMenu.add(tubasMenSel);
-//    	endMenu.add(tubasMenSel);
-//    	
-//    }
+
 }

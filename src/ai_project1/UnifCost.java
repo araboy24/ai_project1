@@ -29,7 +29,7 @@ public class UnifCost
      static CityUF gaza = new CityUF("Gaza");
      static CityUF rafah = new CityUF("Rafah");
      static CityUF nazareth = new CityUF("Nazareth");
-     static CityUF deirAlbalah = new CityUF("Deir AlBalah"); 
+     static CityUF deirAlbalah = new CityUF("Deir Al Balah"); 
      static CityUF safad = new CityUF("Safad");
      static CityUF ramla = new CityUF("Ramla");	
      static CityUF northGaza = new CityUF("North Gaza");
@@ -45,10 +45,18 @@ public class UnifCost
 		this.startCity = cityStringToObject(startCityS);
 		this.goalCity = cityStringToObject(goalCityS);
 		
+		addAdjacencies();
+		
+		try {
 		computePaths(this.startCity);
-		System.out.println(" shortest Distance to " + goalCityS + ": " + startCity.minDistance);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		System.out.println("The shortest Distance from " + startCityS + " to " + goalCityS + ": " + this.goalCity.minDistance + " km.");
 	    List<CityUF> path = getShortestPathTo(goalCity);
         System.out.println("Path: " + path);
+		
 		
 	}
 	
@@ -57,7 +65,7 @@ public class UnifCost
 			if(c.equalsIgnoreCase(city.toString())) {
 				return city;
 			}
-		}
+		}	
 		return null;
 	}
 	
@@ -102,6 +110,7 @@ public class UnifCost
     	nazareth.adjacencies = new Edge[]{ new Edge(jenin,27) };
     	jenin.adjacencies = new Edge[]{ new Edge( toulkarem,52) };
         toulkarem.adjacencies = new Edge[]{ new Edge(tubas, 32) };
+      tubas.adjacencies = new Edge[]{};// new Edge(sabastia, 17) }
 //        tubas.adjacencies = new Edge[]{ new Edge(sabastia, 17) };
 //        sabastia.adjacencies = new Edge[]{ new Edge(nablus, 23) };
         nablus.adjacencies = new Edge[]{ new Edge(salfeit, 16) };
@@ -116,6 +125,7 @@ public class UnifCost
     	gaza.adjacencies = new Edge[]{ new Edge(ramla, 76.2) };
     	ramla.adjacencies = new Edge[]{ new Edge(jaffa, 18.3) };
     	jaffa.adjacencies = new Edge[]{ new Edge(haifa, 85.26) };
+    	
     }
     
 }
@@ -125,8 +135,8 @@ class CityUF implements Comparable<CityUF>
 {
 	
     public final String name;
-    public Edge[] adjacencies;
-//    public Edge1[] adjacencies1;
+    public Edge[] adjacencies = {};
+    public Edge1[] adjacencies1;
     public double minDistance = Double.POSITIVE_INFINITY;
     public CityUF previous;
     public CityUF(String argName) { name = argName; }
@@ -138,11 +148,19 @@ class CityUF implements Comparable<CityUF>
 
 }
 
+class Edge1
+{
+	
+}
 
 class Edge
 {
    public final CityUF target;
    public final double weight;
+   
    public Edge(CityUF argTarget, double argWeight)
-   { target = argTarget; weight = argWeight; }
+   { 
+	   target = argTarget; 
+	   weight = argWeight; 
+	   }
 }

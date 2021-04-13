@@ -61,16 +61,22 @@ public class LinkedListPractice {
 	
 	static City[] cities = {jenin, toulkarem, qalqillia, salfeit, ramallah, jerusalem, bethlehem, 
 			hebron, jericho, nablus, tubas, haifa, jaffa, gaza, rafah, safad, deirAlbalah, northGaza, nazareth, ramla, khanYunis};
-//	City jenin = new City("Jenin");
+	
+	String start, end;
 	
 	public LinkedListPractice(String start, String end){
-		
+		this.start = start;
+		this.end = end;
 		populateLists();
 		assignListsToCities();
 //		System.out.println(ramallah.getAdjacentCities());
+		
+	
+	}
+	
+	public void runIterativeDeepening() {
 		ItDeepCity idc = new ItDeepCity(cityStringToObject(end));
 		idc.runDeepeningSearch(cityStringToObject(start));
-	
 	}
 	
 	public City cityStringToObject(String c) {
