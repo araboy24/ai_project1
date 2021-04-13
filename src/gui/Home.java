@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 
 import ai_project1.ItDeepCity;
 import ai_project1.LinkedListPractice;
+import ai_project1.UnifCost;
 
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;;
@@ -195,6 +196,7 @@ public class Home extends JPanel
 			{
 //				Driver.cl.show(Driver.cards, "map");
 //				LinkedListPractice l = new LinkedListPractice(startComboBox.getSelectedItem().toString(), endComboBox.getSelectedItem().toString());
+				UnifCost uc = new UnifCost(startComboBox.getSelectedItem().toString(), endComboBox.getSelectedItem().toString());
 			}
         });
         
