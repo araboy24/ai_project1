@@ -132,26 +132,6 @@ public class UnifCost
     }
 	
     public void addAdjacencies() {
-//    	haifa.adjacencies = new Edge[]{ new Edge(nazareth, 30.39) };
-//    	nazareth.adjacencies = new Edge[]{ new Edge(jenin,27) };
-//    	jenin.adjacencies = new Edge[]{ new Edge( toulkarem,52) };
-//        toulkarem.adjacencies = new Edge[]{ new Edge(tubas, 32) };
-//      tubas.adjacencies = new Edge[]{};// new Edge(sabastia, 17) }
-////        tubas.adjacencies = new Edge[]{ new Edge(sabastia, 17) };
-////        sabastia.adjacencies = new Edge[]{ new Edge(nablus, 23) };
-//        nablus.adjacencies = new Edge[]{ new Edge(salfeit, 16) };
-//    	salfeit.adjacencies = new Edge[]{ new Edge(ramallah, 18) };
-//    	ramallah.adjacencies = new Edge[]{ new Edge(jericho, 20) };
-//    	jericho.adjacencies = new Edge[]{ new Edge(bethlehem, 29) };
-////    	bethlehem.adjacencies = new Edge[]{ new Edge(halhoul, 17) };
-////    	halhoul.adjacencies = new Edge[]{ new Edge(hebron, 5) };
-////    	hebron.adjacencies = new Edge[]{ new Edge(dura, 7) };
-////    	dura.adjacencies = new Edge[]{ new Edge(rafah, 48.2) };
-//    	rafah.adjacencies = new Edge[]{ new Edge(gaza, 33.5) };
-//    	gaza.adjacencies = new Edge[]{ new Edge(ramla, 76.2) };
-//    	ramla.adjacencies = new Edge[]{ new Edge(jaffa, 18.3) };
-//    	jaffa.adjacencies = new Edge[]{ new Edge(haifa, 85.26) };
-    	
     	rafah.adjacencies = new Edge[]{ new Edge(khanYunis, 7.71),  new Edge(gaza, 30.79) ,
     			new Edge(deirAlbalah, 17.88) ,  new Edge(northGaza, 35.4) };
     	khanYunis.adjacencies = new Edge[]{ new Edge( deirAlbalah,9.26),  new Edge(northGaza, 27.75) 
